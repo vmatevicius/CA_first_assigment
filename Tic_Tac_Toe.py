@@ -273,12 +273,3 @@ class Game:
         print(f"{self.player_one} is {self.player_one_sign} and {self.player_two} is {self.player_two_sign}")
         self.start_match()
         
-        
-        
-        
-        
-        
-               
-game = Game("Antanas","Barabanas")
-
-game.start_game()
