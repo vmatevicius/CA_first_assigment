@@ -9,13 +9,11 @@ class Game:
     game_board = ["[ ]","[ ]","[ ]",
                   "[ ]","[ ]","[ ]",
                   "[ ]","[ ]","[ ]"]
-    
+
     def __init__(self, player_one_name: str, player_two_name: str) -> None:
-        if not player_one_name:
-            raise ValueError("First player name is missing")
+        if type(player_one_name) and type(player_two_name) != str:
+            raise TypeError("Name must be a string")
         self.player_one: str = player_one_name
-        if not player_two_name:
-            raise ValueError("Second player name is missing")
         self.player_two: str = player_two_name
         self.player_one_sign: str = ""
         self.player_two_sign: str = ""
@@ -29,6 +27,7 @@ class Game:
     
     def assign_signs_to_players(self) -> str:
         
+        print("\n")
         print("Before starting the game")
         print("Players must choose between X and O signs")
         
@@ -78,9 +77,11 @@ class Game:
         turns = 0
         
         if self.player_one_sign == "X":
+            
+            self.show_board()
 
             while self.GAME_STATUS:
-            
+                
                 location = int(input(f"{self.player_one} turn, choose a valid location: "))
                 
                 if location not in [0,1,2,3,4,5,6,7,8]:
@@ -130,8 +131,10 @@ class Game:
                         logging.info("Game succesfully ended without a winner")
         else:
             
+            self.show_board()
+            
             while self.GAME_STATUS:
-                
+
                 location = int(input(f"{self.player_two} turn, choose a valid location: "))
                 
                 if location not in [0,1,2,3,4,5,6,7,8]:
@@ -276,6 +279,6 @@ class Game:
         
         
                
-game = Game("Antanas")
+game = Game("Antanas","Barabanas")
 
 game.start_game()
