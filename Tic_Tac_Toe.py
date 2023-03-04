@@ -1,6 +1,10 @@
 from game_helpers import introduction
 from random import randint
 import logging
+import pyfiglet
+
+
+logging.basicConfig(level=logging.DEBUG,filename='data.log', filemode='a', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', datefmt='%d/%m/%Y %H:%M:%S')
 
 class Game:
 
@@ -12,12 +16,13 @@ class Game:
 
     def __init__(self, player_one_name: str, player_two_name: str) -> None:
         if type(player_one_name) and type(player_two_name) != str:
+            logging.critical("Program raised type error because one or more inputs were not strings")
             raise TypeError("Name must be a string")
         self.player_one: str = player_one_name
         self.player_two: str = player_two_name
         self.player_one_sign: str = ""
         self.player_two_sign: str = ""
-        logging.info(f"Game succesfully inicialized between player {self.player_one} and {self.player_two}!")
+        logging.info(f"Game succesfully inicialized between players {self.player_one} and {self.player_two}!")
     
     def show_board(self) -> None:
 
@@ -188,80 +193,95 @@ class Game:
         if self.game_board[0] == self.game_board[1] == self.game_board[2] != "[ ]":
             
             if self.game_board[0].replace('[','').replace(']','') == self.player_one_sign:
-                print(f"{self.player_one} Wins!!")
+                winner = pyfiglet.figlet_format(f"{self.player_one} Wins!!" , font = "big")
+                print(winner)
                 
             else:
-                print(f"{self.player_two} Wins!!")
+                winner = pyfiglet.figlet_format(f"{self.player_two} Wins!!" , font = "big")
+                print(winner)
                 
             return True
             
         elif self.game_board[3] == self.game_board[4] == self.game_board[5] != "[ ]":
             
             if self.game_board[3].replace('[','').replace(']','') == self.player_one_sign:
-                print(f"{self.player_one} Wins!!")
+                winner = pyfiglet.figlet_format(f"{self.player_one} Wins!!" , font = "big")
+                print(winner)
                 
             else:
-                print(f"{self.player_two} Wins!!")
+                winner = pyfiglet.figlet_format(f"{self.player_two} Wins!!" , font = "big")
+                print(winner)
                 
             return True
             
         elif self.game_board[6] == self.game_board[7] == self.game_board[8] != "[ ]":
             
             if self.game_board[6].replace('[','').replace(']','') == self.player_one_sign:
-                print(f"{self.player_one} Wins!!")
+                winner = pyfiglet.figlet_format(f"{self.player_one} Wins!!" , font = "big")
+                print(winner)
                 
             else:
-                print(f"{self.player_two} Wins!!")
-                
+                winner = pyfiglet.figlet_format(f"{self.player_two} Wins!!" , font = "big")
+                print(winner)
             return True
             
         elif self.game_board[0] == self.game_board[3] == self.game_board[6] != "[ ]":
             
             if self.game_board[0].replace('[','').replace(']','') == self.player_one_sign:
-                print(f"{self.player_one} Wins!!")
+                winner = pyfiglet.figlet_format(f"{self.player_one} Wins!!" , font = "big")
+                print(winner)
                 
             else:
-                print(f"{self.player_two} Wins!!")
+                winner = pyfiglet.figlet_format(f"{self.player_two} Wins!!" , font = "big")
+                print(winner)
                 
             return True
             
         elif self.game_board[1] == self.game_board[4] == self.game_board[7] != "[ ]":
             
             if self.game_board[1].replace('[','').replace(']','') == self.player_one_sign:
-                print(f"{self.player_one} Wins!!")
+                winner = pyfiglet.figlet_format(f"{self.player_one} Wins!!" , font = "big")
+                print(winner)
                 
             else:
-                print(f"{self.player_two} Wins!!")
+                winner = pyfiglet.figlet_format(f"{self.player_two} Wins!!" , font = "big")
+                print(winner)
                 
             return True
         
         elif self.game_board[2] == self.game_board[5] == self.game_board[8] != "[ ]":
             
             if self.game_board[2].replace('[','').replace(']','') == self.player_one_sign:
-                print(f"{self.player_one} Wins!!")
+                winner = pyfiglet.figlet_format(f"{self.player_one} Wins!!" , font = "big")
+                print(winner)
                 
             else:
-                print(f"{self.player_two} Wins!!")
+                winner = pyfiglet.figlet_format(f"{self.player_two} Wins!!" , font = "big")
+                print(winner)
                 
             return True
         
         elif self.game_board[0] == self.game_board[4] == self.game_board[8] != "[ ]":
             
             if self.game_board[0].replace('[','').replace(']','') == self.player_one_sign:
-                print(f"{self.player_one} Wins!!")
+                winner = pyfiglet.figlet_format(f"{self.player_one} Wins!!" , font = "big")
+                print(winner)
                 
             else:
-                print(f"{self.player_two} Wins!!")
+                winner = pyfiglet.figlet_format(f"{self.player_two} Wins!!" , font = "big")
+                print(winner)
                 
             return True
         
         elif self.game_board[2] == self.game_board[4] == self.game_board[6] != "[ ]":
             
             if self.game_board[2].replace('[','').replace(']','') == self.player_one_sign:
-                print(f"{self.player_one} Wins!!")
+                winner = pyfiglet.figlet_format(f"{self.player_one} Wins!!" , font = "big")
+                print(winner)
                 
             else:
-                print(f"{self.player_two} Wins!!")
+                winner = pyfiglet.figlet_format(f"{self.player_two} Wins!!" , font = "big")
+                print(winner)
                 
             return True
                
@@ -272,4 +292,3 @@ class Game:
         self.assign_signs_to_players()
         print(f"{self.player_one} is {self.player_one_sign} and {self.player_two} is {self.player_two_sign}")
         self.start_match()
-        
