@@ -105,7 +105,8 @@ class Game:
                         break
                     
                     if turns == 9:
-                        print("No one won!")
+                        winner = pyfiglet.figlet_format("No one won :( ", font = "big")
+                        print(winner)
                         logging.info("Game succesfully ended without a winner")
                         break
                     
@@ -129,7 +130,8 @@ class Game:
                         break
                     
                     if turns == 9:
-                        print("No one won!")
+                        winner = pyfiglet.figlet_format("No one won :( ", font = "big")
+                        print(winner)
                         logging.info("Game succesfully ended without a winner")
                         break
         else:
@@ -158,7 +160,8 @@ class Game:
                         break
                     
                     if turns == 9:
-                        print("No one won!")
+                        winner = pyfiglet.figlet_format("No one won :( ", font = "big")
+                        print(winner)
                         logging.info("Game succesfully ended without a winner")
                         break
                     
@@ -182,7 +185,8 @@ class Game:
                         break
                     
                     if turns == 9:  
-                        print("No one won!")
+                        winner = pyfiglet.figlet_format("No one won :( ", font = "big")
+                        print(winner)
                         logging.info("Game succesfully ended without a winner")
                         break
                 
@@ -457,3 +461,4 @@ class PlusMinus(Game):
                         print("No one won!")
                         logging.info("Game succesfully ended without a winner")
                         break
+                    
