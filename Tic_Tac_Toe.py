@@ -86,6 +86,7 @@ class Game:
         
     def start_match(self) -> None:
         
+        max_turns = 9
         # Set turn counter to 0
         turns = 0
         
@@ -122,7 +123,7 @@ class Game:
                         break
                     
                     # If turns = 9, stop the match and declare that there was no winner
-                    if turns == 9:
+                    if turns == max_turns:
                         winner = pyfiglet.figlet_format("No one won :( ", font = "big")
                         print(winner)
                         logging.info("Game succesfully ended without a winner")
@@ -148,7 +149,7 @@ class Game:
                         logging.info("Game succesfully ended with a winner")
                         break
                     
-                    if turns == 9:
+                    if turns == max_turns:
                         winner = pyfiglet.figlet_format("No one won :( ", font = "big")
                         print(winner)
                         logging.info("Game succesfully ended without a winner")
@@ -180,7 +181,7 @@ class Game:
                         logging.info("Game succesfully ended with a winner")
                         break
                     
-                    if turns == 9:
+                    if turns == max_turns:
                         winner = pyfiglet.figlet_format("No one won :( ", font = "big")
                         print(winner)
                         logging.info("Game succesfully ended without a winner")
@@ -205,7 +206,7 @@ class Game:
                         logging.info("Game succesfully ended with a winner")
                         break
                     
-                    if turns == 9:  
+                    if turns == max_turns:  
                         winner = pyfiglet.figlet_format("No one won :( ", font = "big")
                         print(winner)
                         logging.info("Game succesfully ended without a winner")
@@ -315,5 +316,6 @@ class Game:
         introduction()
         self.show_board()
         self.assign_signs_to_players()
+        print("\n")
         print(f"{self.player_one} is {self.player_one_sign} and {self.player_two} is {self.player_two_sign}")
         self.start_match()
