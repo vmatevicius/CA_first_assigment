@@ -42,6 +42,7 @@ class Game:
             # Try to get correct input from user
             while True:
             
+                # Get sign from player
                 self.player_one_sign = input(f"{self.player_one} chooses: ").strip().upper()
                 
                 # Check if sign is valid
