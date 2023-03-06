@@ -13,14 +13,14 @@ class Game:
                   "[ ]","[ ]","[ ]"]
 
     def __init__(self, player_one_name: str, player_two_name: str) -> None:
-        if type(player_one_name) and type(player_two_name) != str:
-            logging.critical("Program raised type error because one or more inputs were not strings")
-            raise TypeError("Name must be a string")
-        self.player_one: str = player_one_name
-        self.player_two: str = player_two_name
-        self.__player_one_sign: str = ""
-        self.__player_two_sign: str = ""
-        logging.info(f"Game succesfully inicialized between players {self.player_one} and {self.player_two}!")
+        try:
+            self.player_one: str = player_one_name
+            self.player_two: str = player_two_name
+            self.__player_one_sign: str = ""
+            self.__player_two_sign: str = ""
+            logging.info(f"Game succesfully inicialized between players {self.player_one} and {self.player_two}!")
+        except Exception as e:
+            logging.error(f"Program raised an error: {e}")
     
     def show_board(self) -> None:
 
