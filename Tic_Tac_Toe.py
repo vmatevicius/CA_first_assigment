@@ -100,9 +100,11 @@ class Game:
             first_player = self.player_two
             second_player = self.player_one
             # Show the board before the match
-            self.show_board()
+        self.show_board()
 
             # While turns does not = 9 or there is no winner, continue the match
+        while True:
+            
             while True:
                 
                 # Ask first player for a location 
@@ -134,6 +136,8 @@ class Game:
                         print(winner)
                         logging.info("Game succesfully ended without a winner")
                         break
+                break
+            while True:
                 
                 # Ask second player for a location
                 location = int(input(f"{second_player} turn, choose a valid location: "))
@@ -160,7 +164,8 @@ class Game:
                         print(winner)
                         logging.info("Game succesfully ended without a winner")
                         break
- 
+                break
+
     def check_if_winner_exists(self) -> bool:
         
         # Check all possible winning conditions, if any of them are met, declare the winner
