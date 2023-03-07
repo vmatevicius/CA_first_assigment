@@ -407,3 +407,6 @@ class plus_minus(Game):
                             logging.info("Game succesfully ended without a winner")
                             break
                     break
+                
+game = Game("Vytautas","Mindaugas")
+game.start_game()
