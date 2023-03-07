@@ -92,7 +92,13 @@ class Game:
         
         # If player_one choose "X", he starts first
         if self.player_one_sign == "X":
+            first_player = self.player_one
+            second_player = self.player_two
             
+        # If player_two chooses "X" he starts first
+        else:
+            first_player = self.player_two
+            second_player = self.player_one
             # Show the board before the match
             self.show_board()
 
@@ -100,7 +106,7 @@ class Game:
             while True:
                 
                 # Ask first player for a location 
-                location = int(input(f"{self.player_one} turn, choose a valid location: "))
+                location = int(input(f"{first_player} turn, choose a valid location: "))
                 
                 # Check if user input is valid
                 if location not in [0,1,2,3,4,5,6,7,8]:
@@ -130,7 +136,7 @@ class Game:
                         break
                 
                 # Ask second player for a location
-                location = int(input(f"{self.player_two} turn, choose a valid location: "))
+                location = int(input(f"{second_player} turn, choose a valid location: "))
                 
                 if location not in [0,1,2,3,4,5,6,7,8]:
                     print("Number must be between 0 and 8")
@@ -154,64 +160,7 @@ class Game:
                         print(winner)
                         logging.info("Game succesfully ended without a winner")
                         break
-                    
-        # If player_two choose "X" he starts first
-        else:
-            
-            self.show_board()
-            
-            while True:
-
-                location = int(input(f"{self.player_two} turn, choose a valid location: "))
-                
-                if location not in [0,1,2,3,4,5,6,7,8]:
-                    print("Number must be between 0 and 8")
-                    continue
-                
-                elif self.game_board[location] != "[ ]":
-                    print("Choose only empty squares!!!")
-                    continue
-                
-                else:
-                    self.game_board[location] = "[X]"
-                    turns += 1
-                    self.show_board()
-                    
-                    if self.check_if_winner_exists():
-                        logging.info("Game succesfully ended with a winner")
-                        break
-                    
-                    if turns == max_turns:
-                        winner = pyfiglet.figlet_format("No one won :( ", font = "big")
-                        print(winner)
-                        logging.info("Game succesfully ended without a winner")
-                        break
-                    
-                location = int(input(f"{self.player_one} turn, choose a valid location: "))
-                
-                if location not in [0,1,2,3,4,5,6,7,8]: 
-                    print("Number must be between 0 and 8")
-                    continue
-                
-                elif self.game_board[location] != "[ ]":
-                    print("Choose only empty squares!!!")
-                    continue
-                
-                else:
-                    self.game_board[location] = "[O]"
-                    turns += 1
-                    self.show_board()
-                    
-                    if self.check_if_winner_exists():
-                        logging.info("Game succesfully ended with a winner")
-                        break
-                    
-                    if turns == max_turns:  
-                        winner = pyfiglet.figlet_format("No one won :( ", font = "big")
-                        print(winner)
-                        logging.info("Game succesfully ended without a winner")
-                        break
-                
+ 
     def check_if_winner_exists(self) -> bool:
         
         # Check all possible winning conditions, if any of them are met, declare the winner
