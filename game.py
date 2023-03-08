@@ -261,6 +261,3 @@ class Game:
         introduction()
         print(f"{self.player_x} is X and {self.player_o} is O")
         self.start_match()
-
-game = Game("Vytautas","Mindaugas")
-game.start_game()
