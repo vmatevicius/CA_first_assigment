@@ -90,20 +90,24 @@ class Game:
     def get_location(self) -> int:
         
         while True:
-            
-            # Ask first player for a location 
-            location = int(input("Choose a valid location: "))
-            
-            # Check if user input is valid
-            if location not in [0,1,2,3,4,5,6,7,8]:
-                print("Number must be between 0 and 8")
+            try:
+                    
+                # Ask first player for a location 
+                location = int(input("Choose a valid location: "))
+                
+                # Check if user input is valid
+                if location not in [0,1,2,3,4,5,6,7,8]:
+                    print("Number must be between 0 and 8")
+                    continue
+                # Check if square in the board is empty and not occupied
+                elif self.game_board[location] != "[ ]":
+                    print("Choose only empty squares!!!")
+                    continue
+                else:
+                    return location
+            except Exception as e:
+                logging.error(f"Error recieved : {e}")
                 continue
-            # Check if square in the board is empty and not occupied
-            elif self.game_board[location] != "[ ]":
-                print("Choose only empty squares!!!")
-                continue
-            else:
-                return location
         
     def start_match(self) -> None:
         
@@ -261,3 +265,6 @@ class Game:
         introduction()
         print(f"{self.player_x} is X and {self.player_o} is O")
         self.start_match()
+
+game = Game("Mindaugas", "Vytautas")
+game.start_game()
