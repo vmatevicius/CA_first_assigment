@@ -6,6 +6,4 @@ game = Game("Your name","Other players name")
 
 game.start_game()
 
-to start type in terminal and press enter:
-
-python3 game.py 
+to start type in terminal "python3 game.py" without brackets and press enter:
