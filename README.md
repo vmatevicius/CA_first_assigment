@@ -5,3 +5,7 @@ To run it copy the code from game.py and at the bottom of the code add 2 lines l
 game = Game("Your name","Other players name")
 
 game.start_game()
+
+to start type in terminal and press enter:
+
+python3 game.py 
